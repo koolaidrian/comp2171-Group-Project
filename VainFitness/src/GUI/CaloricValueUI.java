@@ -13,9 +13,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
-public class CaloricValue {
+public class CaloricValueUI {
 
 	private JFrame frame;
+	private JFrame MainFrame;
 	private JTextField Query;
 
 	/**
@@ -25,7 +26,7 @@ public class CaloricValue {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					CaloricValue window = new CaloricValue();
+					CaloricValueUI window = new CaloricValueUI();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -37,16 +38,19 @@ public class CaloricValue {
 	/**
 	 * Create the application.
 	 */
-	public CaloricValue() {
+	public CaloricValueUI() {
 		initialize();
 	}
 	
-	public void showFrame() {
+	public void showFrame(JFrame mainFrame) {
+		this.MainFrame = mainFrame;
 		frame.setVisible(true);
 	}
 	
 	public void hideFrame() {
 		frame.setVisible(false);
+		MainFrame.setVisible(true);
+		
 	}
 	
 
@@ -98,6 +102,16 @@ public class CaloricValue {
 		
 		
 		frame.getContentPane().add(Result);
+		
+		JButton BackButton = new JButton("Back");
+		BackButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				hideFrame();
+			}
+		});
+		BackButton.setBounds(384, 377, 97, 25);
+		frame.getContentPane().add(BackButton);
 	}
 }
 

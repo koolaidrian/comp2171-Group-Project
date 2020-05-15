@@ -11,6 +11,7 @@ public class Member extends User {
      * Default constructor
      */
     public Member() {
+    	super();
     }
 
     /**
