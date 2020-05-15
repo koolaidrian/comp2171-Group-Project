@@ -3,6 +3,7 @@ package edamanAPI;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import java.util.Scanner;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,19 +12,30 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+
 public class MainStart {
     private static HttpURLConnection connection;
+    private static String foodItem;
+    private static String query;
 
     public static void main(String[] args){
         //Method 1 : Java.net.HttpURLConnection
         BufferedReader reader;
+        
         String line;
         StringBuffer responseContent =  new StringBuffer();
+        Scanner input  = new Scanner(System.in);
+        
+        System.out.println("Please enter a food item: ");
+        foodItem = input.nextLine();
+        
+        query = foodItem.replace(" ","%20");
+        System.out.println("FoodItem - " + foodItem + "\nQuery - " + query);
 
 
 
         try {
-            URL url = new URL("https://api.edamam.com/api/nutrition-data?app_id=ecaaac31&app_key=2ac7954552432529c3c90cbf478e2826&ingr=1%20large%20apple");
+            URL url = new URL("https://api.edamam.com/api/nutrition-data?app_id=ecaaac31&app_key=2ac7954552432529c3c90cbf478e2826&ingr="+ query);
             //URL url = new URL("http://jsonplaceholder.typicode.com/albums");
             connection = (HttpURLConnection) url.openConnection();
 
@@ -83,7 +95,7 @@ public class MainStart {
        fat = totalnutrients.getFATKCAL();
        carbs = totalnutrients.getCHOCDFKCAL();
 
-       System.out.println("Ingredients: 1 large Apple \n" + "Total Calories: " + calorie.getQuantity() + "\nProtein: " + protein.getQuantity() + "\nFat: " + fat.getQuantity() + "\nCarbs: " + carbs.getQuantity() );
+       System.out.println("Ingredients: " + foodItem +" \n" + "Total Calories: " + calorie.getQuantity() + "\nProtein: " + protein.getQuantity() + "\nFat: " + fat.getQuantity() + "\nCarbs: " + carbs.getQuantity() );
 
        return null;
    }
