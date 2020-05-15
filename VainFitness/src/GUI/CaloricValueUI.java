@@ -50,6 +50,7 @@ public class CaloricValueUI {
 	public void hideFrame() {
 		frame.setVisible(false);
 		MainFrame.setVisible(true);
+		frame.dispose();
 		
 	}
 	
