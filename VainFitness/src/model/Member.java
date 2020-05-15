@@ -13,6 +13,10 @@ public class Member extends User {
     public Member() {
     	super();
     }
+    
+    public Member(String Usertype) {
+    	super(Usertype);
+    }
 
     /**
      * 
