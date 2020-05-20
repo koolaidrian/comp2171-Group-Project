@@ -95,22 +95,22 @@ public class EditClientGoalsView {
 		frame.getContentPane().add(btnNewButton_1);
 
 		textField = new JTextField();
-		textField.setBounds(85, 33, 86, 20);
+		textField.setBounds(88, 33, 86, 20);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(52, 66, 86, 20);
+		textField_1.setBounds(88, 63, 86, 20);
 		frame.getContentPane().add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(62, 102, 86, 20);
+		textField_2.setBounds(88, 102, 86, 20);
 		frame.getContentPane().add(textField_2);
 		textField_2.setColumns(10);
 
 		textField_3 = new JTextField();
-		textField_3.setBounds(52, 137, 86, 20);
+		textField_3.setBounds(88, 137, 86, 20);
 		frame.getContentPane().add(textField_3);
 		textField_3.setColumns(10);
 
@@ -125,7 +125,7 @@ public class EditClientGoalsView {
 		textField_5.setColumns(10);
 
 		textField_6 = new JTextField();
-		textField_6.setBounds(269, 102, 86, 20);
+		textField_6.setBounds(281, 102, 86, 20);
 		frame.getContentPane().add(textField_6);
 		textField_6.setColumns(10);
 	}

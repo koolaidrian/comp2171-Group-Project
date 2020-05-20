@@ -22,6 +22,7 @@ public class User {
     	}else {
     		this.type = UserType.GUEST;
     	}
+    	
     
     }
     

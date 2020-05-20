@@ -21,8 +21,8 @@ public class Client extends Member {
     	super();
     }
     
-    public Client(String Usertype, Profile myProfile) {
-    	super(Usertype);
+    public Client(String Usertype, PersonalInfo PI, Profile myProfile) {
+    	super(Usertype, PI);
     	this.profile = myProfile;
     }
     
