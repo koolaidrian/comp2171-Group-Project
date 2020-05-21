@@ -81,8 +81,7 @@ public class MealPlan
 
     /**
      * @param str 
-     * @param str2 
-     * @param String 
+     * @param str2
      * @param meal 
      * @param foodItem
      */
