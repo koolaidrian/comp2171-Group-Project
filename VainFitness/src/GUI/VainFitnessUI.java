@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.EventQueue;
+import model.fitnessController;
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -15,8 +16,9 @@ import java.awt.Color;
 import javax.swing.UIManager;
 
 public class VainFitnessUI {
-
+	private fitnessController vainFitnessController;
 	private JFrame frame;
+	
 
 	/**
 	 * Launch the application.
@@ -38,7 +40,9 @@ public class VainFitnessUI {
 	 * Create the application.
 	 */
 	public VainFitnessUI() {
+		this.vainFitnessController = new fitnessController();
 		initialize();
+		
 	}
 
 	/**
@@ -64,18 +68,25 @@ public class VainFitnessUI {
 				
 			}
 		});
-		CaloricValue.setBounds(45, 232, 175, 25);
+		CaloricValue.setBounds(45, 174, 175, 25);
 		frame.getContentPane().add(CaloricValue);
 		
 		JLabel Title = new JLabel("VainFitness");
 		Title.setBackground(Color.LIGHT_GRAY);
 		Title.setFont(new Font("Tahoma", Font.ITALIC, 17));
 		Title.setHorizontalAlignment(SwingConstants.CENTER);
-		Title.setBounds(45, 13, 545, 38);
+		Title.setBounds(45, 13, 545, 73);
 		frame.getContentPane().add(Title);
 		
 		JButton btnNewButton = new JButton("Create Client Profile");
-		btnNewButton.setBounds(45, 285, 175, 25);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CreateClientProfileUI profileCreation = new CreateClientProfileUI();
+				frame.setVisible(false);
+				profileCreation.showFrame(frame, vainFitnessController);
+			}
+		});
+		btnNewButton.setBounds(45, 228, 175, 25);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton ExitBtn = new JButton("Exit");

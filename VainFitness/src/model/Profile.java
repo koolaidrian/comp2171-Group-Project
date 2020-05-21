@@ -140,7 +140,7 @@ public class Profile {
     /**
      * Default constructor
      */
-    public Profile(double H, String G, int Y, int M, int D, String Add, WeightGoal WG, NutritionGoal NG) {
+    public Profile(double H, String G, int Y, int M, int D, String Add, NutritionGoal NG, WeightGoal WG) {
     	this.height = H;
     	if(G.equalsIgnoreCase("female")) {
     		this.gender = Gender.Female;
@@ -160,14 +160,77 @@ public class Profile {
     	
     }
     
+    public Profile(double H, String G, int Y, int M, int D, String Add) {
+    	this.height = H;
+    	if(G.equalsIgnoreCase("female")) {
+    		this.gender = Gender.Female;
+    	}else {
+    		this.gender = Gender.Male;
+    	}
+    	
+    	
+    	this.date_of_birth = Calendar.getInstance();
+    	this.date_of_birth.set(Y, M, D);
+    	
+    	this.address = Add;
+    	this.weightGoal = new WeightGoal();
+    	this.NutritionGoal = new NutritionGoal();
+    	
+    	id++;
+    	
+    }
+    
+    public Profile(double H, String G, int Y, int M, int D, String Add,WeightGoal WG) {
+    	this.height = H;
+    	if(G.equalsIgnoreCase("female")) {
+    		this.gender = Gender.Female;
+    	}else {
+    		this.gender = Gender.Male;
+    	}
+    	
+    	
+    	this.date_of_birth = Calendar.getInstance();
+    	this.date_of_birth.set(Y, M, D);
+    	
+    	this.address = Add;
+    	this.weightGoal = WG;
+    	this.NutritionGoal = new NutritionGoal();
+    	
+    	id++;
+    	
+    }
+    
+    public Profile(double H, String G, int Y, int M, int D, String Add, NutritionGoal NG) {
+    	this.height = H;
+    	if(G.equalsIgnoreCase("female")) {
+    		this.gender = Gender.Female;
+    	}else {
+    		this.gender = Gender.Male;
+    	}
+    	
+    	
+    	this.date_of_birth = Calendar.getInstance();
+    	this.date_of_birth.set(Y, M, D);
+    	
+    	this.address = Add;
+    	this.weightGoal = new WeightGoal();
+    	this.NutritionGoal = NG;
+    	
+    	id++;
+    	
+    }
+    
+   
+    
     public String toString() {
     	
     	String text = "";
     	
-    	text += getHeight() + "\n";
-    	text += getGender() + "\n";
-    	text += getDOB() + "\n";
+    	text += "Height -" + getHeight() + "\n";
+    	text += "Gender -" +getGender() + "\n";
+    	text += "Date of Birth -" +getDOB() + "\n";
     	text += getAddress() + "\n";
+    	text += getNutritionGoalInfo() + "\n";
     	text += getWeightGoalInfo() + "\n";
     	
     	return text;

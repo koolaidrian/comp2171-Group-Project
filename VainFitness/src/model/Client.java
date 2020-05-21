@@ -6,38 +6,31 @@ import java.util.*;
  * 
  */
 public class Client extends Member {
+	
+    private Profile profile;
+
+    private ArrayList<MealPlan> myPlans;
+
+    private MealPlan dailyConsumption;
+
 
     /**
      * Default constructor
      */
     public Client() {
+    	super();
     }
-
-    /**
-     * 
-     */
-    private Profile profile;
-
-    /**
-     * 
-     */
-    private Set<MealPlan> myPlans;
-
-    /**
-     * 
-     */
-    private MealPlan dailyConsumption;
-
-
-
-
-
-    /**
-     * 
-     */
-    public void Client() {
-        // TODO implement here
+    
+    public Client(String Usertype, Profile myProfile) {
+    	super(Usertype);
+    	this.profile = myProfile;
     }
+    
+    
+    
+//    public void Client() {
+//        // TODO implement here
+//    }
 
     /**
      * @param plan
@@ -66,6 +59,19 @@ public class Client extends Member {
 
     public void editCustom(CustomMealPlan plan) {
         // TODO implement here
+    }
+    
+    public String getProfileInfo() {
+    	return profile.toString();
+    }
+    
+    public String toString() {
+    	String text = "";
+    	text += super.toString() + "\n";
+    	text += getProfileInfo();
+    	
+    	return text;
+    	
     }
 
 }

@@ -59,7 +59,7 @@ public class User {
     public String toString() {
     	String text = "";
     	
-    	text += "UserType - " + getUserType() + "\n";
+    	text += "\n----------------\nUserType - " + getUserType() + "\n----------------\n";
     	
     	return text;
     }
