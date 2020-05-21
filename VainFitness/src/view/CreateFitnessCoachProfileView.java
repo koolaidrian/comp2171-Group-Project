@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class CreateFitnessCoachProfileView {
 
-	/**
-	 * Default constructor
-	 */
-	public CreateFitnessCoachProfileView() {
-	}
+    /**
+     * Default constructor
+     */
+    public CreateFitnessCoachProfileView() {
+    }
 
 }

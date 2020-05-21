@@ -40,7 +40,7 @@ public class ViewReport {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
 		JButton btnNewButton = new JButton("Back");
 		btnNewButton.setBounds(145, 227, 89, 23);
 		frame.getContentPane().add(btnNewButton);

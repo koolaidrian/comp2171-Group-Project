@@ -1,8 +1,10 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionListener;
 import java.util.*;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
@@ -15,22 +17,25 @@ import javax.swing.JTabbedPane;
 public class EditLMPView {
 
 	private JFrame frame;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					EditLMPView window = new EditLMPView();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JButton confirmButton;
+	private JButton cancelButton;
+	private JButton dessertSaveButton;
+	private JButton dinnerSaveButton;
+	private JButton lunchSaveButton;
+	private JButton breakfastSaveButton;
+	private JButton newBreakfastMealButton;
+	private JButton newLunchMealButton;
+	private JButton newDinnerMealButton;
+	private JButton newDessertMealButton;
+	private JButton deleteButton;
+	private JList breakfastList;
+	private JList lunchList;
+	private JList dinnerList;
+	private JList dessertList;
+	private DefaultListModel breakfastListModel;
+	private DefaultListModel lunchListModel;
+	private DefaultListModel dinnerListModel;
+	private DefaultListModel dessertListModel;
 
 	/**
 	 * Create the application.
@@ -47,86 +52,157 @@ public class EditLMPView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(10, 11, 414, 204);
 		frame.getContentPane().add(tabbedPane);
-
+		
 		JPanel panel = new JPanel();
 		tabbedPane.addTab("Breakfast", null, panel, null);
 		panel.setLayout(null);
-
-		JButton btnNewButton_5 = new JButton("Save");
-		btnNewButton_5.setBounds(310, 142, 89, 23);
-		panel.add(btnNewButton_5);
-
-		JButton btnNewButton_6 = new JButton("Create New Meal");
-		btnNewButton_6.setBounds(174, 142, 126, 23);
-		panel.add(btnNewButton_6);
-
-		JList list = new JList();
-		list.setBounds(10, 11, 389, 120);
-		panel.add(list);
-
+		
+		breakfastSaveButton = new JButton("Save");
+		breakfastSaveButton.setBounds(310, 142, 89, 23);
+		panel.add(breakfastSaveButton);
+		
+		newBreakfastMealButton = new JButton("Create New Meal");
+		newBreakfastMealButton.setBounds(174, 142, 126, 23);
+		panel.add(newBreakfastMealButton);
+		
+		breakfastList = new JList();
+		breakfastList.setModel(breakfastListModel);
+		breakfastList.setBounds(10, 11, 389, 120);
+		panel.add(breakfastList);
+		
 		JPanel panel_1 = new JPanel();
 		tabbedPane.addTab("Lunch", null, panel_1, null);
 		panel_1.setLayout(null);
-
-		JButton btnNewButton_4 = new JButton("Save");
-		btnNewButton_4.setBounds(310, 142, 89, 23);
-		panel_1.add(btnNewButton_4);
-
-		JButton btnNewButton_7 = new JButton("Create New Meal");
-		btnNewButton_7.setBounds(174, 142, 126, 23);
-		panel_1.add(btnNewButton_7);
-
-		JList list_1 = new JList();
-		list_1.setBounds(10, 11, 389, 120);
-		panel_1.add(list_1);
-
+		
+		lunchSaveButton = new JButton("Save");
+		lunchSaveButton.setBounds(310, 142, 89, 23);
+		panel_1.add(lunchSaveButton);
+		
+		newLunchMealButton = new JButton("Create New Meal");
+		newLunchMealButton.setBounds(174, 142, 126, 23);
+		panel_1.add(newLunchMealButton);
+		
+		lunchList = new JList();
+		lunchList.setModel(lunchListModel);
+		lunchList.setBounds(10, 11, 389, 120);
+		panel_1.add(lunchList);
+		
 		JPanel panel_2 = new JPanel();
 		tabbedPane.addTab("Dinner", null, panel_2, null);
 		panel_2.setLayout(null);
-
-		JButton btnNewButton_3 = new JButton("Save");
-		btnNewButton_3.setBounds(310, 142, 89, 23);
-		panel_2.add(btnNewButton_3);
-
-		JButton btnNewButton_8 = new JButton("Create New Meal");
-		btnNewButton_8.setBounds(174, 142, 126, 23);
-		panel_2.add(btnNewButton_8);
-
-		JList list_2 = new JList();
-		list_2.setBounds(10, 11, 389, 120);
-		panel_2.add(list_2);
-
+		
+		dinnerSaveButton = new JButton("Save");
+		dinnerSaveButton.setBounds(310, 142, 89, 23);
+		panel_2.add(dinnerSaveButton);
+		
+		newDinnerMealButton = new JButton("Create New Meal");
+		newDinnerMealButton.setBounds(174, 142, 126, 23);
+		panel_2.add(newDinnerMealButton);
+		
+		dinnerList = new JList();
+		dinnerList.setModel(dinnerListModel);
+		dinnerList.setBounds(10, 11, 389, 120);
+		panel_2.add(dinnerList);
+		
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("Snack/Dessert", null, panel_3, null);
 		panel_3.setLayout(null);
-
-		JButton btnNewButton_2 = new JButton("Save");
-		btnNewButton_2.setBounds(310, 142, 89, 23);
-		panel_3.add(btnNewButton_2);
-
-		JButton btnNewButton_9 = new JButton("Create New Meal");
-		btnNewButton_9.setBounds(174, 142, 126, 23);
-		panel_3.add(btnNewButton_9);
-
-		JList list_3 = new JList();
-		list_3.setBounds(10, 11, 389, 120);
-		panel_3.add(list_3);
-
-		JButton btnNewButton = new JButton("Confirm");
-		btnNewButton.setBounds(185, 226, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("Cancel");
-		btnNewButton_1.setBounds(284, 226, 89, 23);
-		frame.getContentPane().add(btnNewButton_1);
-
-		JButton btnNewButton_10 = new JButton("Delete Plan");
-		btnNewButton_10.setBounds(86, 226, 89, 23);
-		frame.getContentPane().add(btnNewButton_10);
+		
+		dessertSaveButton = new JButton("Save");
+		dessertSaveButton.setBounds(310, 142, 89, 23);
+		panel_3.add(dessertSaveButton);
+		
+		newDessertMealButton = new JButton("Create New Meal");
+		newDessertMealButton.setBounds(174, 142, 126, 23);
+		panel_3.add(newDessertMealButton);
+		
+		dessertList = new JList();
+		dessertList.setModel(dessertListModel);
+		dessertList.setBounds(10, 11, 389, 120);
+		panel_3.add(dessertList);
+		
+		confirmButton = new JButton("Confirm");
+		confirmButton.setBounds(185, 226, 89, 23);
+		frame.getContentPane().add(confirmButton);
+		
+		cancelButton = new JButton("Cancel");
+		cancelButton.setBounds(284, 226, 89, 23);
+		frame.getContentPane().add(cancelButton);
+		
+		deleteButton = new JButton("Delete Plan");
+		deleteButton.setBounds(86, 226, 89, 23);
+		frame.getContentPane().add(deleteButton);
 	}
 
+	public JList getBreakfastList() {
+		return breakfastList;
+	}
+	public JList getLunchList() {
+		return lunchList;
+	}
+	public JList getDinnerList() {
+		return dinnerList;
+	}
+	public JList getDessertList() {
+		return dessertList;
+	}
+
+	public JFrame getFrame() {
+		return frame;
+	}
+	
+	public void addBreakfastPlans(String text) {
+		this.breakfastListModel.addElement(text);
+	}
+	public void addLunchPlans(String text) {
+		this.lunchListModel.addElement(text);
+	}
+	public void addDinnerPlans(String text) {
+		this.dinnerListModel.addElement(text);
+	}
+	public void addDessertPlans(String text) {
+		this.dessertListModel.addElement(text);		
+	}
+	
+	public void addBreakfastSaveListener(ActionListener listenForSaveBreakfast) {
+		breakfastSaveButton.addActionListener(listenForSaveBreakfast);
+	}
+	public void addLunchSaveListener(ActionListener listenForSaveLunch) {
+		lunchSaveButton.addActionListener(listenForSaveLunch);
+	}
+	public void addDinnerSaveListener(ActionListener listenForSaveDinner) {
+		dinnerSaveButton.addActionListener(listenForSaveDinner);
+	}
+	public void addDessertSaveListener(ActionListener listenForSaveDessert) {
+		dessertSaveButton.addActionListener(listenForSaveDessert);
+	}
+
+	public void addNewBreakfastMealListener(ActionListener listenForNewMeal) {
+		newBreakfastMealButton.addActionListener(listenForNewMeal);
+	}
+	public void addNewLunchMealListener(ActionListener listenForNewMeal) {
+		newLunchMealButton.addActionListener(listenForNewMeal);
+	}
+	public void addNewDinnerMealListener(ActionListener listenForNewMeal) {
+		newDinnerMealButton.addActionListener(listenForNewMeal);
+	}
+	public void addNewDessertMealListener(ActionListener listenForNewMeal) {
+		newDessertMealButton.addActionListener(listenForNewMeal);
+	}
+	
+	public void addDeletePlanListener(ActionListener listenForNewMeal) {
+		deleteButton.addActionListener(listenForNewMeal);
+	}
+	public void addConfirmPlanListener(ActionListener listenForNewMeal) {
+		confirmButton.addActionListener(listenForNewMeal);
+	}
+	public void addCancelListener(ActionListener listenForNewMeal) {
+		cancelButton.addActionListener(listenForNewMeal);
+	}
+
+	
 }

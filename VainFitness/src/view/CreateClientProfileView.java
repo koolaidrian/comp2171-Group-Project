@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class CreateClientProfileView {
 
-	/**
-	 * Default constructor
-	 */
-	public CreateClientProfileView() {
-	}
+    /**
+     * Default constructor
+     */
+    public CreateClientProfileView() {
+    }
 
 }
