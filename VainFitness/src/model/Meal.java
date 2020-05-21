@@ -16,13 +16,17 @@ public class Meal
     /**
      * Default constructor
      */
-    public Meal(String name, FoodItem breakfask, FoddItem lunch, FoodItem dinner, double totalCaloricValue)
+    public Meal(String name, ArrayList<FoodItem> foodItemList, double totalCaloricValue)
     {
         this.name = name;
-        this.foodItems = new ArrayList<FoodItem>();
+        this.foodItems = foodItemList;
         this.totalCaloricValue = totalCaloricValue;
     }
-
+    
+    
+    //--------------------------------------------------------------------------------------------------
+    // Methods
+    //--------------------------------------------------------------------------------------------------
 
     /**
      * @param foodItem
@@ -31,8 +35,9 @@ public class Meal
     {
         // TODO implement here
         System.out.println(foodItems); // Display list of food items
+        
         foodItems.add(foodItem); // Add food item to the arraylist
-        System.out.println(foodItems); // Disply list after food item has been added
+        System.out.println(foodItems); // Display list after food item has been added
     }
 
     /**
@@ -42,7 +47,8 @@ public class Meal
     {
         // TODO implement here
         System.out.println(foodItems); // Display the list of food items
-        foodItems.remove(foodItem); // Remove food item from an arraylist
+        
+        foodItems.remove(foodItem); // Remove food item from an arrayList
         System.out.println(foodItems); // Display list after food item has been removed
     }
 

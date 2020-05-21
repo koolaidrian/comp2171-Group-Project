@@ -25,7 +25,7 @@ public class FoodItem
         this.mainNutritionalContent = mainNutritionalContent;
         this.carbs = carbs;
         this.protein = protein;
-        this.fats;
+        this.fats = fats;
     }
 
 
