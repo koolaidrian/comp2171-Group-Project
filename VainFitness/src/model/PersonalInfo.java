@@ -5,6 +5,7 @@ import java.util.*;
 /**
  * 
  */
+
 public class PersonalInfo {
 
     /**
@@ -16,8 +17,13 @@ public class PersonalInfo {
     private String email;
     //private Gender gender;
 
-    
-    
+    public PersonalInfo(String Firstname,String Lastname,String Contact,String Email) {
+    	this.firstname = Firstname;
+    	this.lastname = Lastname;
+    	this.contact = Contact;
+    	this.email = Email;
+    }
+
     public String getFirstname() {
 		return firstname;
 	}
@@ -49,12 +55,5 @@ public class PersonalInfo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-    public PersonalInfo() {
-    }
-
-
-
-
 
 }

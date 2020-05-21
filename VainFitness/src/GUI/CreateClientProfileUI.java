@@ -109,7 +109,7 @@ public class CreateClientProfileUI {
 		confirmationBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				controller.createClientProfile("Client", Height, Gender, Day, Month, Year, Address, DailyConsumption, Carbs, Protein, Fat, InitialWeight, CurrentWeight,InitialWeight);
+				controller.createClientProfile("Client",Firstname,Lastname,Contact,Email,Height, Gender, Day, Month, Year, Address, DailyConsumption, Carbs, Protein, Fat, InitialWeight, CurrentWeight,IdealWeight);
 				System.out.println(controller.getClientInfo());
 				JOptionPane.showMessageDialog(null, "Profile Created!");
 				hideFrame();
@@ -215,7 +215,7 @@ public class CreateClientProfileUI {
 		saveProfileInfo.setBounds(475, 209, 97, 25);
 		panel_1.add(saveProfileInfo);
 		
-		JLabel lblNewLabel_5 = new JLabel("Height:");
+		JLabel lblNewLabel_5 = new JLabel("Height (cm) :");
 		lblNewLabel_5.setBounds(12, 24, 91, 16);
 		panel_1.add(lblNewLabel_5);
 		
@@ -299,8 +299,8 @@ public class CreateClientProfileUI {
 		saveNutrionalGoalInfo.setBounds(475, 209, 97, 25);
 		panel_2.add(saveNutrionalGoalInfo);
 		
-		JLabel lblNewLabel_12 = new JLabel("Please enter your ideal daily consumption");
-		lblNewLabel_12.setBounds(12, 27, 267, 16);
+		JLabel lblNewLabel_12 = new JLabel("Please enter your ideal daily consumption (Kcal)");
+		lblNewLabel_12.setBounds(12, 27, 277, 16);
 		panel_2.add(lblNewLabel_12);
 		
 		JLabel lblNewLabel_13 = new JLabel("Please enter Fat percentage: ");
@@ -316,22 +316,22 @@ public class CreateClientProfileUI {
 		panel_2.add(lblNewLabel_15);
 		
 		carbs = new JTextField();
-		carbs.setBounds(290, 173, 116, 22);
+		carbs.setBounds(301, 173, 116, 22);
 		panel_2.add(carbs);
 		carbs.setColumns(10);
 		
 		protein = new JTextField();
-		protein.setBounds(290, 119, 116, 22);
+		protein.setBounds(301, 119, 116, 22);
 		panel_2.add(protein);
 		protein.setColumns(10);
 		
 		fat = new JTextField();
-		fat.setBounds(290, 70, 116, 22);
+		fat.setBounds(301, 70, 116, 22);
 		panel_2.add(fat);
 		fat.setColumns(10);
 		
 		dailyConsumption = new JTextField();
-		dailyConsumption.setBounds(291, 24, 116, 22);
+		dailyConsumption.setBounds(301, 24, 116, 22);
 		panel_2.add(dailyConsumption);
 		dailyConsumption.setColumns(10);
 		
@@ -360,14 +360,14 @@ public class CreateClientProfileUI {
 		saveWeightGoalInfo.setBounds(475, 209, 97, 25);
 		panel_3.add(saveWeightGoalInfo);
 		
-		JLabel lblNewLabel_17 = new JLabel("Initial Weight");
+		JLabel lblNewLabel_17 = new JLabel("Initial Weight (pounds)");
 		lblNewLabel_17.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_17.setBounds(45, 37, 144, 16);
 		panel_3.add(lblNewLabel_17);
 		
-		JLabel lblNewLabel_18 = new JLabel("Current Weight");
+		JLabel lblNewLabel_18 = new JLabel("Current Weight (pounds)");
 		lblNewLabel_18.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_18.setBounds(360, 37, 144, 16);
+		lblNewLabel_18.setBounds(370, 37, 144, 16);
 		panel_3.add(lblNewLabel_18);
 		
 		initialWeight = new JTextField();
@@ -380,9 +380,9 @@ public class CreateClientProfileUI {
 		panel_3.add(currentWeight);
 		currentWeight.setColumns(10);
 		
-		JLabel lblNewLabel_19 = new JLabel("Ideal Weight");
+		JLabel lblNewLabel_19 = new JLabel("Ideal Weight (pounds)");
 		lblNewLabel_19.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_19.setBounds(223, 140, 125, 16);
+		lblNewLabel_19.setBounds(223, 140, 144, 16);
 		panel_3.add(lblNewLabel_19);
 		
 		idealWeight = new JTextField();
