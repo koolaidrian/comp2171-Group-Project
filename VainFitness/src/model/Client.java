@@ -26,6 +26,11 @@ public class Client extends Member {
     	this.profile = myProfile;
     }
     
+    public Client(String Usertype, String Username, String Password, PersonalInfo PI, Profile myProfile) {
+    	super(Usertype, Username, Password, PI);
+    	this.profile = myProfile;
+    }
+    
     
     
 //    public void Client() {
@@ -67,11 +72,24 @@ public class Client extends Member {
     
     public String toString() {
     	String text = "";
+    	String t1 = "";
     	text += super.toString() + "\n";
     	text += getProfileInfo();
     	
     	return text;
     	
     }
+    
+    public int getId() {
+    	return profile.getId();
+    }
+    
+    public String getDOB() {
+    	return profile.getDOB();
+    }
+   /* public String, String, String ,String, String, String, String, int ,double , String, String  String, Double, int, int, int, double, double, double renderClientInfo() {
+    	
+    	return String UserType,String Username, String Password,String Firstname, String Lastname, String Contact, String Email, int ID, double Height, String Gender, String DOB, String Address, Double DailyGoal, int CarbsPercentage, int ProteinPercentage, int FatPercentage,double InitialWeight, double CurrentWeight, double GoalWeight
+    } */
 
 }

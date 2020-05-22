@@ -9,10 +9,11 @@ public class Profile {
 	
     private double height;
 	private Gender gender;
-    private Calendar date_of_birth;
+    private String date_of_birth;
     private String address;
     private WeightGoal weightGoal;
     private NutritionGoal NutritionGoal;
+    private int myId;
     private static int id = 0;
 
     public double getHeight() {
@@ -31,7 +32,10 @@ public class Profile {
 			break;
 		case Female:
 			gen = "Female";
-			
+			break;
+		default:
+			gen = "Male";
+			break;
 		}
 		return gen;
 	}
@@ -45,11 +49,15 @@ public class Profile {
 	}
 
 	public String getDOB() {
-		return "" + Calendar.DATE +  "/" + Calendar.MONTH + "/" + Calendar.YEAR;
+		//return "" + Calendar.DATE +  "/" + Calendar.MONTH + "/" + Calendar.YEAR;
+		return date_of_birth;
 	}
 
 	public void setDOB(int Y, int M, int D) {
-		this.date_of_birth.set(Y, M, D);
+		String DOB ="";
+		DOB += Y + "-" + M +"-" + D;
+		
+		this.date_of_birth = DOB;
 	}
 
 	public String getAddress() {
@@ -131,8 +139,12 @@ public class Profile {
 	
 	//=============================================================
 
-	public static int getId() {
-		return id;
+	public int getId() {
+		return myId;
+	}
+	
+	public static void setId(int newID ) {
+		id = newID;
 	}
 
 
@@ -149,13 +161,13 @@ public class Profile {
     	}
     	
     	
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
+    	this.date_of_birth = Y + "-" + M +"-" + D;
     	
     	this.address = Add;
     	this.weightGoal = WG;
     	this.NutritionGoal = NG;
     	
+    	this.myId = id;
     	id++;
     	
     }
@@ -169,13 +181,13 @@ public class Profile {
     	}
     	
     	
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
+    	this.date_of_birth = Y + "-" + M +"-" + D;
     	
     	this.address = Add;
     	this.weightGoal = new WeightGoal();
     	this.NutritionGoal = new NutritionGoal();
     	
+    	this.myId = id;
     	id++;
     	
     }
@@ -189,13 +201,13 @@ public class Profile {
     	}
     	
     	
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
+    	this.date_of_birth = Y + "-" + M +"-" + D;
     	
     	this.address = Add;
     	this.weightGoal = WG;
     	this.NutritionGoal = new NutritionGoal();
     	
+    	this.myId = id;
     	id++;
     	
     }
@@ -209,13 +221,13 @@ public class Profile {
     	}
     	
     	
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
+    	this.date_of_birth = Y + "-" + M +"-" + D;
     	
     	this.address = Add;
     	this.weightGoal = new WeightGoal();
     	this.NutritionGoal = NG;
     	
+    	this.myId = id;
     	id++;
     	
     }

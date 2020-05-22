@@ -3,7 +3,7 @@ package GUI;
 import java.awt.EventQueue;
 import model.fitnessController;
 import java.awt.Image;
-
+import view.*;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -51,7 +51,7 @@ public class VainFitnessUI {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setEnabled(false);
-		frame.setBounds(100, 100, 670, 450);
+		frame.setBounds(100, 100, 672, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -68,7 +68,7 @@ public class VainFitnessUI {
 				
 			}
 		});
-		CaloricValue.setBounds(45, 174, 175, 25);
+		CaloricValue.setBounds(45, 152, 175, 25);
 		frame.getContentPane().add(CaloricValue);
 		
 		JLabel Title = new JLabel("VainFitness");
@@ -78,15 +78,15 @@ public class VainFitnessUI {
 		Title.setBounds(45, 13, 545, 73);
 		frame.getContentPane().add(Title);
 		
-		JButton btnNewButton = new JButton("Create Client Profile");
+		JButton btnNewButton = new JButton("Sign up");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CreateClientProfileUI profileCreation = new CreateClientProfileUI();
 				frame.setVisible(false);
-				profileCreation.showFrame(frame, vainFitnessController);
+				profileCreation.showFrame(frame);
 			}
 		});
-		btnNewButton.setBounds(45, 228, 175, 25);
+		btnNewButton.setBounds(45, 201, 175, 25);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton ExitBtn = new JButton("Exit");
@@ -105,6 +105,26 @@ public class VainFitnessUI {
 		VainFitnessIcon.setIcon(new ImageIcon(img));
 		VainFitnessIcon.setBounds(289, 64, 301, 296);
 		frame.getContentPane().add(VainFitnessIcon); 
+		
+		JButton btnNewButton_1 = new JButton("Sign in");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				LogInView loginUI = new LogInView();
+				hide();
+				loginUI.showFrame(frame);
+				
+			}
+		});
+		btnNewButton_1.setBounds(45, 252, 175, 25);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 
+	public void hide() {
+		frame.setVisible(false);
+	}
+	
+	public void show() {
+		frame.setVisible(true);
+	}
 }
