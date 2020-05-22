@@ -3,7 +3,7 @@ package GUI;
 import java.awt.EventQueue;
 import model.fitnessController;
 import java.awt.Image;
-
+import view.*;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -107,8 +107,24 @@ public class VainFitnessUI {
 		frame.getContentPane().add(VainFitnessIcon); 
 		
 		JButton btnNewButton_1 = new JButton("Sign in");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				LogInView loginUI = new LogInView();
+				hide();
+				loginUI.showFrame(frame);
+				
+			}
+		});
 		btnNewButton_1.setBounds(45, 252, 175, 25);
 		frame.getContentPane().add(btnNewButton_1);
 	}
 
+	public void hide() {
+		frame.setVisible(false);
+	}
+	
+	public void show() {
+		frame.setVisible(true);
+	}
 }

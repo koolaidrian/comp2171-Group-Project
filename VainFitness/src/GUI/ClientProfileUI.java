@@ -1,6 +1,7 @@
 package GUI;
 
 import java.awt.EventQueue;
+import java.awt.Image;	
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JScrollBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class ClientProfileUI {
 	
@@ -47,7 +49,7 @@ public class ClientProfileUI {
 	
 	public void showFrame(JFrame mainFrame) {
 		this.MainFrame = mainFrame;
-		this.controller = fitnessController.getInstance();
+		//this.controller = fitnessController.getInstance();
 		frame.setVisible(true);
 	}
 	
@@ -64,10 +66,12 @@ public class ClientProfileUI {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 700, 451);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		this.controller = fitnessController.getInstance();
 		
 		JLabel nameLabel = new JLabel("Client Name");
 		
@@ -97,12 +101,21 @@ public class ClientProfileUI {
 		btnNewButton_2.setBounds(50, 228, 153, 25);
 		frame.getContentPane().add(btnNewButton_2);
 		
-		JButton btnNewButton_3 = new JButton("Log out");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton logoutBtn = new JButton("Log out");
+		logoutBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				controller.logoutUser();
+				hideFrame();
 			}
 		});
-		btnNewButton_3.setBounds(550, 9, 97, 25);
-		frame.getContentPane().add(btnNewButton_3);
+		logoutBtn.setBounds(550, 9, 97, 25);
+		frame.getContentPane().add(logoutBtn);
+		
+		JLabel profileIcon = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/members.png")).getImage();
+		profileIcon.setIcon(new ImageIcon(img));
+		//lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Camille\\git\\comp2171-Group-Project\\VainFitness\\img\\members.png"));
+		profileIcon.setBounds(343, 167, 304, 224);
+		frame.getContentPane().add(profileIcon);
 	}
 }

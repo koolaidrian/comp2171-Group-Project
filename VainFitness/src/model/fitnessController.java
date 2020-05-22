@@ -60,7 +60,9 @@ public class fitnessController {
 	
 	public void createClientProfile(String UserType,String Username, String Password,String Firstname,String Lastname,String Contact, String Email, double Height, String Gender, int Day, int Month, int Year, String Address, Double DailyGoal, int CarbsPercentage, int ProteinPercentage, int FatPercentage,double InitialWeight, double CurrentWeight, double GoalWeight) {
 		newClient = new Client(UserType,new PersonalInfo(Firstname,Lastname,Contact,Email),new Profile(Height,Gender,Year,Month,Day,Address,new NutritionGoal(DailyGoal, CarbsPercentage, ProteinPercentage, FatPercentage), new WeightGoal(InitialWeight, CurrentWeight, GoalWeight)));
+		clients.add(newClient);
 		currentUser = newClient;
+		DB.insertClientData(UserType, Username, Password, Firstname, Lastname, Contact, Email, ((Client) currentUser).getId(), Height, Gender, ((Client) currentUser).getDOB(), Address, DailyGoal, CarbsPercentage, ProteinPercentage, FatPercentage, InitialWeight, CurrentWeight, GoalWeight);
 	}
 	
 	
@@ -94,6 +96,28 @@ public class fitnessController {
 		}else {
 			System.out.println("Sorry Database down at the moment. Please try again later");
 		}
+	}
+	
+	public boolean validUser(String username, String password) {
+		
+		for(Client c : clients) {
+			if (c.getUsername().equals(username)) {
+				if(c.getPassword().equals(password)) {
+					currentUser = c;
+					return true;
+				}
+				
+			}
+			
+		}
+		return false;
+	}
+	
+	public void logoutUser() {
+		if( currentUser != null) {
+			currentUser = null;
+		}
+		
 	}
 	
 }

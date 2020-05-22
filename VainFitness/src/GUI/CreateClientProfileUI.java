@@ -125,6 +125,7 @@ public class CreateClientProfileUI {
 					JOptionPane.showMessageDialog(null, "Profile Created!");
 					ClientProfileUI clientProfileUI = new ClientProfileUI();
 					clientProfileUI.showFrame(MainFrame);
+					frame.dispose();
 				}else {
 					JOptionPane.showMessageDialog(null, "Profile was not created successfully. Please try again!");
 					hideFrame();

@@ -53,7 +53,7 @@ public class DBConnect {
 	
 	@SuppressWarnings("finally")
 	public boolean insertClientData(String UserType,String Username, String Password,String Firstname, String Lastname, String Contact, String Email, int ID, double Height, String Gender, String DOB, String Address, double DailyGoal, int CarbsPercentage, int ProteinPercentage, int FatPercentage,double InitialWeight, double CurrentWeight, double GoalWeight) {
-		String Trainer = "1";
+		String Trainer = "0";
 		boolean result = false;
 		/* INSERT INTO `clients` (`UserType`, `ID`, `Username`, `Password`, `FirstName`, `LastName`, `Contact`, `Email`, `Gender`, `Height`, `DOB`, `Address`, `Trainer`, `InitialWeight`, `CurrentWeight`, `GoalWeight`, `DCGoal`, `CarbPercentage`, `ProteinPercentage`, `FatPercentage`)
 		 *  VALUES ('CLIENT', '0', 'Tester', 'Password', 'Test', 'ing', '123445', 'test@test.com', 'M', '173', '2010-11-06', 'tester land', '0', '100', '110', '120', '1000', '30', '40', '30');
