@@ -74,9 +74,28 @@ public class MealPlan
      * @param str 
      * @param meal
      */
-    public void deleteMeal(String str, Meal meal)
+    public void deleteMeal(String mealType, Meal meal, ArrayList<Meal> meals)
     {
         // TODO implement here
+    	if(mealType.equalsIgnoreCase("breakfast")) 
+    	{
+    		this.mealType = typeOfMeal.BREAKFAST;
+    		//meal.
+    	}
+    	else if (mealType.equalsIgnoreCase("lunch"))
+    	{
+    		this.mealType = typeOfMeal.LUNCH;
+    	}
+    	else if(mealType.equalsIgnoreCase("dinner")) 
+    	{
+    		this.mealType = typeOfMeal.DINNER;
+    	}
+    	else 
+    	{
+    		System.out.println("Meal is not of a valid type.\n A meal can be either breakfast, lunch or dinner.");
+    		System.out.println("Please try again.");
+    	}
+    	
     }
 
     /**
