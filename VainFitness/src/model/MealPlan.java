@@ -56,7 +56,8 @@ public class MealPlan {
 
     /**
      * @param str 
-     * @param str2
+     * @param str2 
+     * @param String 
      * @param meal 
      * @param foodItem
      */
