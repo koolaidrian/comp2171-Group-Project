@@ -88,6 +88,10 @@ public class fitnessController {
 		return currentUser.getUsername();
 	}
 	
+	
+	public int getClientProgress() {
+		return ((Client)currentUser).getTodayProgress();
+	}
 	public void showClientList() {
 		if(DBaccess) {
 			
@@ -111,6 +115,10 @@ public class fitnessController {
 			
 		}
 		return false;
+	}
+	
+	public void addFoodItem(FoodItem item) {
+		((Client)currentUser).addFoodItem(item);
 	}
 	
 	public void logoutUser() {

@@ -36,7 +36,9 @@ public class MealPlan
         this.mealType = mealType;
     }
 
-
+    public MealPlan() {
+    	
+    }
     /**
      * @param mealType --> Type of meal (i.e. breakfast, lunch or dinner)
      * @param meal
