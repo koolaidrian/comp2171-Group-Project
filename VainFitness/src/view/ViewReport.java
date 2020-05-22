@@ -63,5 +63,6 @@ public class ViewReport {
 		textArea.setBounds(50, 30, 298, 173);
 		frame.getContentPane().add(textArea);
 		textArea.append(control.seeReport());
+		frame.setVisible(true);
 	}
 }
