@@ -19,6 +19,7 @@ public class ViewLMPList {
 	private JButton viewButton;
 	private JButton backButton;
 	private JList list;
+	
 
 	/**
 	 * Create the application.
@@ -35,6 +36,8 @@ public class ViewLMPList {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		
+		listModel = new DefaultListModel();
 		
 		list = new JList();
 		list.setModel(listModel);

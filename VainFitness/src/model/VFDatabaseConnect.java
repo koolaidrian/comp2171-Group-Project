@@ -176,6 +176,46 @@ public class VFDatabaseConnect {
 			return null;
 		}
 	}
+    
+    public String getBreakfast(String mealPlan) {
+    	String breakfast = " ";
+    	try { 
+			String query = "Select * from mealplans";
+			rs = st.executeQuery(query);
+			System.out.println("Records from Database");
+			while (rs.next()) {
+				String name = rs.getString("Name");
+				if (name.equals(mealPlan)) {
+					breakfast = rs.getString("Breakfast");
+					return breakfast;
+				}
+			}
+			return breakfast;
+		} catch(Exception e) {
+			System.out.println("Error: " + e);
+			return breakfast;
+		}
+	}
+    
+    public String getLunch(String mealPlan) {
+    	String lunch = " ";
+    	try { 
+			String query = "Select * from mealplans";
+			rs = st.executeQuery(query);
+			System.out.println("Records from Database");
+			while (rs.next()) {
+				String name = rs.getString("Name");
+				if (name.equals(mealPlan)) {
+					lunch = rs.getString("Lunch");
+					return lunch;
+				}
+			}
+			return lunch;
+		} catch(Exception e) {
+			System.out.println("Error: " + e);
+			return lunch;
+		}
+	}
 
 	public ArrayList<String> getMeals() {
 		try {
@@ -191,6 +231,26 @@ public class VFDatabaseConnect {
 		} catch(Exception e) {
 			System.out.println("Error: " + e);
 			return null;
+		}
+	}
+	
+	public String getDinner(String mealPlan) {
+    	String dinner = " ";
+    	try { 
+			String query = "Select * from mealplans";
+			rs = st.executeQuery(query);
+			System.out.println("Records from Database");
+			while (rs.next()) {
+				String name = rs.getString("Name");
+				if (name.equals(mealPlan)) {
+					dinner = rs.getString("Dinner");
+					return dinner;
+				}
+			}
+			return dinner;
+		} catch(Exception e) {
+			System.out.println("Error: " + e);
+			return dinner;
 		}
 	}
 	
@@ -315,17 +375,6 @@ public class VFDatabaseConnect {
 	public boolean addDinner(String mealplan, String meal) {
 		try {
 			String query = "update mealplans set Dinner= '"+meal+"' where Name= '"+mealplan+"' ";
-			rs = st.executeQuery(query);
-			return true;
-		} catch(Exception e) {
-			System.out.println("Error: " + e);
-			return false;
-		}
-	}
-	
-	public boolean addDessert(String mealplan, String meal) {
-		try {
-			String query = "update mealplans set Dessert= '"+meal+"' where Name= '"+mealplan+"' ";
 			rs = st.executeQuery(query);
 			return true;
 		} catch(Exception e) {
