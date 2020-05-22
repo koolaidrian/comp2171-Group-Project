@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import GUI.DBConnect;
+import database.DBConnect;
 
 public class fitnessController {
 	
