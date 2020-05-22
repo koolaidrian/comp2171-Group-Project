@@ -42,15 +42,15 @@ public class EditDailyConsumptionView {
 		frame.setBounds(100, 100, 290, 196);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
 		JLabel lblNewLabel = new JLabel("Add or Delete?");
 		lblNewLabel.setBounds(97, 50, 71, 14);
 		frame.getContentPane().add(lblNewLabel);
-
+		
 		JButton btnNewButton = new JButton("ADD");
 		btnNewButton.setBounds(41, 85, 89, 23);
 		frame.getContentPane().add(btnNewButton);
-
+		
 		JButton btnNewButton_1 = new JButton("DELETE");
 		btnNewButton_1.setBounds(147, 85, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
