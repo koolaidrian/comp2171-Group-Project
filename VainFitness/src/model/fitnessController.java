@@ -3,11 +3,22 @@ package model;
 public class fitnessController {
 	
 	private Client clientDemo;
+	private static fitnessController firstInstance = null;
 	
 	
-	public fitnessController() {
+	private fitnessController() {
 		
 	}
+	
+	
+	public static fitnessController getInstance() {
+		if (firstInstance == null) {
+			firstInstance = new fitnessController ();
+		}
+		
+		return firstInstance;
+	}
+	
 	
 	
 	public void createClientProfile(String UserType,String Firstname,String Lastname,String Contact, String Email, double Height, String Gender, int Day, int Month, int Year, String Address) {

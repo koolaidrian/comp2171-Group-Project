@@ -40,7 +40,7 @@ public class VainFitnessUI {
 	 * Create the application.
 	 */
 	public VainFitnessUI() {
-		this.vainFitnessController = new fitnessController();
+		this.vainFitnessController = fitnessController.getInstance();
 		initialize();
 		
 	}
