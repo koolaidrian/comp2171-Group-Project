@@ -200,6 +200,7 @@ public class CreateClientProfileUI {
 			public void actionPerformed(ActionEvent e) {
 				Username = username.getText();
 				Password = String.valueOf(password2.getPassword());
+				progressBar.setValue(20);
 			}
 		});
 		saveMemberInfo.setBounds(475, 209, 97, 25);
@@ -260,7 +261,7 @@ public class CreateClientProfileUI {
 				Lastname = lastname.getText();
 				Contact = contact.getText();
 				Email = email.getText();
-				progressBar.setValue(25);
+				progressBar.setValue(40);
 				
 				}
 			}
@@ -286,7 +287,7 @@ public class CreateClientProfileUI {
 				Day = Integer.parseInt(day.getText());
 				Month = Integer.parseInt(month.getText());
 				Year = Integer.parseInt(year.getText());
-				progressBar.setValue(50);
+				progressBar.setValue(60);
 				}
 				
 			}
@@ -371,7 +372,7 @@ public class CreateClientProfileUI {
 				Fat = Integer.parseInt(fat.getText());
 				Protein = Integer.parseInt(protein.getText());
 				Carbs = Integer.parseInt(carbs.getText());
-				progressBar.setValue(75);
+				progressBar.setValue(80);
 				}
 			}
 		});
