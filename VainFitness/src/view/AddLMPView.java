@@ -45,15 +45,15 @@ public class AddLMPView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JList list = new JList();
 		list.setBounds(79, 38, 253, 122);
 		frame.getContentPane().add(list);
-		
+
 		JButton btnNewButton = new JButton("Add Plan");
 		btnNewButton.setBounds(103, 171, 89, 23);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBounds(209, 171, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);
