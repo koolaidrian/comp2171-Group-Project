@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class Member extends User {
 	private PersonalInfo myPersonalInfo;
+
 	private String username;
 	private String password;
     //private PersonalInfo info;
@@ -29,7 +30,11 @@ public class Member extends User {
     	this.password = Password;
     	myPersonalInfo = PI;
     }
-
+    
+	public PersonalInfo getMyPersonalInfo() {
+		return myPersonalInfo;
+	}
+	
     public String getUsername() {
 		return username;
 	}

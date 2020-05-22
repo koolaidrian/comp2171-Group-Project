@@ -100,9 +100,19 @@ public class LogInView {
 				if(controller.validUser(Username, Password)) {
 					JOptionPane.showMessageDialog(null, "Log in Successful!");
 					System.out.println(""+ controller.checkCurrentUser()+ "\n"+ controller.getClientUsername());
-					ClientProfileUI clientProfileUI = new ClientProfileUI();
-					
-					clientProfileUI.showFrame(MainFrame);
+					String type = controller.getType(Username);
+					if (type.equals("client")) {
+						ClientProfileUI clientProfileUI = new ClientProfileUI();
+						clientProfileUI.showFrame(MainFrame);
+					}else if (type.equals("trainer")) {
+						VainFitnessUITrainer trainerUI = new VainFitnessUITrainer();
+						trainerUI.showFrame(MainFrame);
+					}else if (type.equals("admin")) {
+						VainFitnessUIAdmin adminUI = new VainFitnessUIAdmin();
+						adminUI.showFrame(MainFrame);
+					}else {
+						System.out.println("Error!");
+					}
 					
 					frame.dispose();
 					
