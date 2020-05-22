@@ -55,7 +55,7 @@ public class VainFitnessUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton CaloricValue = new JButton("Get Caloric Value ");
+		JButton CaloricValue = new JButton("Search Caloric Value ");
 		CaloricValue.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CaloricValueUI CalFrame = new CaloricValueUI();
