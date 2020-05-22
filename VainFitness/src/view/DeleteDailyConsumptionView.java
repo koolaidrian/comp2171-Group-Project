@@ -41,15 +41,15 @@ public class DeleteDailyConsumptionView {
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JList list = new JList();
 		list.setBounds(85, 44, 257, 123);
 		frame.getContentPane().add(list);
-		
+
 		JButton btnNewButton = new JButton("Delete Meal(s)");
 		btnNewButton.setBounds(106, 178, 101, 23);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBounds(228, 178, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);

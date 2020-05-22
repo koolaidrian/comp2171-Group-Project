@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class CheckCaloricValueView {
 
-    /**
-     * Default constructor
-     */
-    public CheckCaloricValueView() {
-    }
+	/**
+	 * Default constructor
+	 */
+	public CheckCaloricValueView() {
+	}
 
 }

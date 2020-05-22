@@ -41,15 +41,15 @@ public class DeleteClientView {
 		frame.setBounds(100, 100, 242, 162);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		JLabel lblNewLabel = new JLabel("Are you sure?");
 		lblNewLabel.setBounds(75, 32, 67, 14);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JButton btnNewButton = new JButton("Delete");
 		btnNewButton.setBounds(10, 57, 89, 23);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Cancel");
 		btnNewButton_1.setBounds(120, 57, 89, 23);
 		frame.getContentPane().add(btnNewButton_1);

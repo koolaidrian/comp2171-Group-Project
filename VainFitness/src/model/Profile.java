@@ -5,15 +5,15 @@ import java.util.*;
 /**
  * 
  */
-
 public class Profile {
 	
     private double height;
 	private Gender gender;
-    private Calendar date_of_birth;
+    private String date_of_birth;
     private String address;
     private WeightGoal weightGoal;
     private NutritionGoal NutritionGoal;
+    private int myId;
     private static int id = 0;
 
     public double getHeight() {
@@ -32,7 +32,10 @@ public class Profile {
 			break;
 		case Female:
 			gen = "Female";
-			
+			break;
+		default:
+			gen = "Male";
+			break;
 		}
 		return gen;
 	}
@@ -46,11 +49,15 @@ public class Profile {
 	}
 
 	public String getDOB() {
-		return "" + Calendar.DATE +  "/" + Calendar.MONTH + "/" + Calendar.YEAR;
+		//return "" + Calendar.DATE +  "/" + Calendar.MONTH + "/" + Calendar.YEAR;
+		return date_of_birth;
 	}
 
 	public void setDOB(int Y, int M, int D) {
-		this.date_of_birth.set(Y, M, D);
+		String DOB ="";
+		DOB += Y + "-" + M +"-" + D;
+		
+		this.date_of_birth = DOB;
 	}
 
 	public String getAddress() {
@@ -60,25 +67,25 @@ public class Profile {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
+	
 	//====================================================
-
 	public String getWeightGoalInfo() {
 		return weightGoal.toString();
 	}
-
+	
 	public double getInitialWeight() {
 		return weightGoal.getInitialWeight();
 	}
 
 	public void setInitialWeight(double initialWeight) {
 		this.weightGoal.setInitialWeight(initialWeight);
+		
 	}
 
-	public double getCurrentWeight()
+	public double getCurrentWeight() {
 		return weightGoal.getCurrentWeight();
 	}
-	
+
 	public void setCurrentWeight(double currentWeight) {
 		this.weightGoal.setCurrentWeight(currentWeight);
 	}
@@ -90,7 +97,8 @@ public class Profile {
 	public void setGoalWeight(double goalWeight) {
 		this.weightGoal.setGoalWeight(goalWeight);
 	}
-
+	
+	
 	//===========================================================
 
 	public String getNutritionGoalInfo() {
@@ -128,17 +136,22 @@ public class Profile {
 	public void setFatPercentage(int fatPercentage) {
 		this.NutritionGoal.setFatPercentage(fatPercentage);
 	}
-
+	
 	//=============================================================
 
-	public static int getId() {
-		return id;
+	public int getId() {
+		return myId;
 	}
+	
+	public static void setId(int newID ) {
+		id = newID;
+	}
+
+
 
     /**
      * Default constructor
      */
-
     public Profile(double H, String G, int Y, int M, int D, String Add, NutritionGoal NG, WeightGoal WG) {
     	this.height = H;
     	if(G.equalsIgnoreCase("female")) {
@@ -146,18 +159,19 @@ public class Profile {
     	}else {
     		this.gender = Gender.Male;
     	}
-
-    	this.date_of_birth = Calendar.getInstance();
-
-    	this.date_of_birth.set(Y, M, D);
-
+    	
+    	
+    	this.date_of_birth = Y + "-" + M +"-" + D;
+    	
     	this.address = Add;
     	this.weightGoal = WG;
     	this.NutritionGoal = NG;
     	
+    	this.myId = id;
     	id++;
+    	
     }
-
+    
     public Profile(double H, String G, int Y, int M, int D, String Add) {
     	this.height = H;
     	if(G.equalsIgnoreCase("female")) {
@@ -165,20 +179,19 @@ public class Profile {
     	}else {
     		this.gender = Gender.Male;
     	}
-
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
-
+    	
+    	
+    	this.date_of_birth = Y + "-" + M +"-" + D;
+    	
     	this.address = Add;
     	this.weightGoal = new WeightGoal();
     	this.NutritionGoal = new NutritionGoal();
-
-    	id++;  	
-
+    	
+    	this.myId = id;
+    	id++;
+    	
     }
-
     
-
     public Profile(double H, String G, int Y, int M, int D, String Add,WeightGoal WG) {
     	this.height = H;
     	if(G.equalsIgnoreCase("female")) {
@@ -187,48 +200,64 @@ public class Profile {
     		this.gender = Gender.Male;
     	}
     	
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
+    	
+    	this.date_of_birth = Y + "-" + M +"-" + D;
+    	
     	this.address = Add;
     	this.weightGoal = WG;
     	this.NutritionGoal = new NutritionGoal();
-    	id++;	
+    	
+    	this.myId = id;
+    	id++;
+    	
     }
-
+    
     public Profile(double H, String G, int Y, int M, int D, String Add, NutritionGoal NG) {
-
     	this.height = H;
     	if(G.equalsIgnoreCase("female")) {
     		this.gender = Gender.Female;
     	}else {
     		this.gender = Gender.Male;
     	}
-
-    	this.date_of_birth = Calendar.getInstance();
-    	this.date_of_birth.set(Y, M, D);
-
+    	
+    	
+    	this.date_of_birth = Y + "-" + M +"-" + D;
+    	
     	this.address = Add;
     	this.weightGoal = new WeightGoal();
     	this.NutritionGoal = NG;
-
+    	
+    	this.myId = id;
     	id++;
+    	
     }
-
+    
+   
+    
     public String toString() {
+    	
     	String text = "";
-
+    	
     	text += "Height -" + getHeight() + "\n";
     	text += "Gender -" +getGender() + "\n";
     	text += "Date of Birth -" +getDOB() + "\n";
     	text += getAddress() + "\n";
     	text += getNutritionGoalInfo() + "\n";
     	text += getWeightGoalInfo() + "\n";
-
+    	
     	return text;
     }
 
     /**
      * 
      */
+
+
+
+
+
+
+
+
 
 }

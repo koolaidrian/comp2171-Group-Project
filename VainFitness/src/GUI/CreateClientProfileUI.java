@@ -14,6 +14,9 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JProgressBar;
+import javax.swing.JPasswordField;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class CreateClientProfileUI {
 	
@@ -39,6 +42,8 @@ public class CreateClientProfileUI {
 	private Double InitialWeight;
 	private Double CurrentWeight;
 	private Double IdealWeight;
+	private String Username;
+	private String Password;
 	//
 	private JTextField firstname;
 	private JTextField lastname;
@@ -59,6 +64,11 @@ public class CreateClientProfileUI {
 	private JTextField idealWeight;
 
 	private JProgressBar progressBar;
+	private JTextField username;
+	private JPasswordField password1;
+	private JPasswordField password2;
+	
+	JLabel passwordLabel;
 	/**
 	 * Launch the application.
 	 */
@@ -83,9 +93,9 @@ public class CreateClientProfileUI {
 	}
 	
 	
-	public void showFrame(JFrame mainFrame, fitnessController control) {
+	public void showFrame(JFrame mainFrame) {
 		this.MainFrame = mainFrame;
-		this.controller = control;
+		this.controller = fitnessController.getInstance();
 		frame.setVisible(true);
 	}
 	
@@ -109,10 +119,17 @@ public class CreateClientProfileUI {
 		confirmationBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				controller.createClientProfile("Client",Firstname,Lastname,Contact,Email,Height, Gender, Day, Month, Year, Address, DailyConsumption, Carbs, Protein, Fat, InitialWeight, CurrentWeight,IdealWeight);
+				controller.createClientProfile("Client",Username,Password,Firstname,Lastname,Contact,Email,Height, Gender, Day, Month, Year, Address, DailyConsumption, Carbs, Protein, Fat, InitialWeight, CurrentWeight,IdealWeight);
 				System.out.println(controller.getClientInfo());
-				JOptionPane.showMessageDialog(null, "Profile Created!");
-				hideFrame();
+				if(controller.checkCurrentUser()) {
+					JOptionPane.showMessageDialog(null, "Profile Created!");
+					ClientProfileUI clientProfileUI = new ClientProfileUI();
+					clientProfileUI.showFrame(MainFrame);
+					frame.dispose();
+				}else {
+					JOptionPane.showMessageDialog(null, "Profile was not created successfully. Please try again!");
+					hideFrame();
+				}
 			}
 		});
 		confirmationBtn.setBounds(484, 358, 123, 32);
@@ -131,6 +148,69 @@ public class CreateClientProfileUI {
 		tabbedPane.setBounds(29, 68, 589, 277);
 		frame.getContentPane().add(tabbedPane);
 		
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("Member Info", null, panel_4, null);
+		panel_4.setLayout(null);
+		
+		username = new JTextField();
+		username.setBounds(154, 65, 231, 22);
+		panel_4.add(username);
+		username.setColumns(10);
+		
+		password1 = new JPasswordField();
+		password1.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+				
+			}
+		});
+		password1.setBounds(154, 113, 231, 22);
+		panel_4.add(password1);
+		
+		password2 = new JPasswordField();
+		password2.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent arg0) {
+				if(!(String.valueOf(password1.getPassword()).contentEquals(String.valueOf(password2.getPassword())))) {
+					passwordLabel.setText("Password Mismatch!");
+					
+				}else {
+					passwordLabel.setText("Password Match!");
+				}
+				
+			}
+		});
+		password2.setBounds(156, 160, 231, 22);
+		panel_4.add(password2);
+		
+		JLabel lblNewLabel_20 = new JLabel("Username");
+		lblNewLabel_20.setBounds(12, 68, 87, 16);
+		panel_4.add(lblNewLabel_20);
+		
+		JLabel lblNewLabel_21 = new JLabel("Password");
+		lblNewLabel_21.setBounds(12, 116, 87, 16);
+		panel_4.add(lblNewLabel_21);
+		
+		JLabel lblNewLabel_22 = new JLabel("Re-enter Password");
+		lblNewLabel_22.setBounds(12, 163, 110, 16);
+		panel_4.add(lblNewLabel_22);
+		
+		JButton saveMemberInfo = new JButton("save");
+		saveMemberInfo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Username = username.getText();
+				Password = String.valueOf(password2.getPassword());
+				progressBar.setValue(20);
+			}
+		});
+		saveMemberInfo.setBounds(475, 209, 97, 25);
+		panel_4.add(saveMemberInfo);
+		
+		passwordLabel = new JLabel("");
+		passwordLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		passwordLabel.setBounds(208, 195, 125, 16);
+		panel_4.add(passwordLabel);
+		
 		JPanel panel = new JPanel();
 		tabbedPane.addTab("PersonalInfo", null, panel, null);
 		panel.setLayout(null);
@@ -144,7 +224,7 @@ public class CreateClientProfileUI {
 		panel.add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Contact");
-		lblNewLabel_3.setBounds(12, 140, 67, 16);
+		lblNewLabel_3.setBounds(12, 148, 67, 16);
 		panel.add(lblNewLabel_3);
 		
 		firstname = new JTextField();
@@ -181,7 +261,7 @@ public class CreateClientProfileUI {
 				Lastname = lastname.getText();
 				Contact = contact.getText();
 				Email = email.getText();
-				progressBar.setValue(25);
+				progressBar.setValue(40);
 				
 				}
 			}
@@ -207,7 +287,7 @@ public class CreateClientProfileUI {
 				Day = Integer.parseInt(day.getText());
 				Month = Integer.parseInt(month.getText());
 				Year = Integer.parseInt(year.getText());
-				progressBar.setValue(50);
+				progressBar.setValue(60);
 				}
 				
 			}
@@ -292,7 +372,7 @@ public class CreateClientProfileUI {
 				Fat = Integer.parseInt(fat.getText());
 				Protein = Integer.parseInt(protein.getText());
 				Carbs = Integer.parseInt(carbs.getText());
-				progressBar.setValue(75);
+				progressBar.setValue(80);
 				}
 			}
 		});
