@@ -1,4 +1,4 @@
-package database;
+package GUI;
 
 import java.sql.DriverManager;
 

@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import database.DBConnect;
+import GUI.DBConnect;
 
 public class SomethingSelectedController {
 	private Client selectedClient;

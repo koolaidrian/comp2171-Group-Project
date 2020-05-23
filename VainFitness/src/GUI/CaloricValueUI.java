@@ -65,7 +65,7 @@ public class CaloricValueUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel Title = new JLabel("Search Caloric Value");
+		JLabel Title = new JLabel("Get Caloric Value");
 		Title.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		Title.setHorizontalAlignment(SwingConstants.CENTER);
 		Title.setBounds(62, 13, 409, 37);
@@ -93,7 +93,7 @@ public class CaloricValueUI {
 				
 				query = Query.getText();
 				
-				Result.setText(api.searchCaloricValue(query));
+				Result.setText(api.getCaloricValue(query));
 				
 				
 			}
