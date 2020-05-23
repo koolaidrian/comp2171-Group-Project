@@ -10,8 +10,12 @@ public class Client extends Member {
     private Profile profile;
 
     private ArrayList<MealPlan> myPlans;
+    private ArrayList<FoodItem> myFoodItems;
 
     private MealPlan dailyConsumption;
+    
+    private double myProgress = 0.0;
+    //private int myProgress = 0;
 
 
     /**
@@ -19,18 +23,30 @@ public class Client extends Member {
      */
     public Client() {
     	super();
+    	myFoodItems = new ArrayList<FoodItem>();
     }
     
     public Client(String Usertype, PersonalInfo PI, Profile myProfile) {
     	super(Usertype, PI);
     	this.profile = myProfile;
+    	myFoodItems = new ArrayList<FoodItem>();
     }
     
     public Client(String Usertype, String Username, String Password, PersonalInfo PI, Profile myProfile) {
     	super(Usertype, Username, Password, PI);
     	this.profile = myProfile;
+    	myFoodItems = new ArrayList<FoodItem>();
     }
     
+    
+    public int getTodayProgress() {
+    	int progress = 0;
+    	double Goal = profile.getDailyConsumptionGoal();
+    	
+    	progress = (int) (myProgress/Goal * 100);
+    	
+       return progress;
+    }
     
     
 //    public void Client() {
@@ -86,6 +102,12 @@ public class Client extends Member {
     
     public String getDOB() {
     	return profile.getDOB();
+    }
+    
+    public void addFoodItem(FoodItem item) {
+    	myFoodItems.add(item);
+    	myProgress += item.getCaloricValue();
+    	
     }
    /* public String, String, String ,String, String, String, String, int ,double , String, String  String, Double, int, int, int, double, double, double renderClientInfo() {
     	

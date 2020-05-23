@@ -11,6 +11,8 @@ public class CustomMealPlan extends MealPlan {
      * Default constructor
      */
     public CustomMealPlan() {
+    	super();
+    	
     }
 
 }

@@ -498,4 +498,12 @@ public class CreateClientProfileUI {
 		progressBar.setBounds(246, 358, 146, 14);
 		frame.getContentPane().add(progressBar);
 	}
+	
+	public void hide() {
+		frame.setVisible(false);
+	}
+	
+	public void show() {
+		frame.setVisible(true);
+	}
 }

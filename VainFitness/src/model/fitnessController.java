@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-import GUI.DBConnect;
+import database.DBConnect;
 
 public class fitnessController {
 	
@@ -142,6 +142,10 @@ public class fitnessController {
 	}
 	
 											/*HANDLE CLIENT*/
+	public int getClientProgress() {
+		return ((Client)currentUser).getTodayProgress();
+	}
+	
 	public Client getNewClient() {
 		return newClient;
 	}
@@ -250,6 +254,10 @@ public class fitnessController {
 			
 		return currentUser.getUsername();
 			
+	}
+	
+	public void addFoodItem(FoodItem item) {
+		((Client)currentUser).addFoodItem(item);
 	}
 
 	

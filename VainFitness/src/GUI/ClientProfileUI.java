@@ -15,6 +15,10 @@ import javax.swing.JScrollBar;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseEvent;
 
 public class ClientProfileUI {
 	
@@ -22,6 +26,7 @@ public class ClientProfileUI {
 	private JFrame MainFrame;
 
 	private JFrame frame;
+	JProgressBar nutritionalProgressBar;
 
 	/**
 	 * Launch the application.
@@ -68,6 +73,18 @@ public class ClientProfileUI {
 	private void initialize() {
 		
 		frame = new JFrame();
+		frame.getContentPane().addMouseMotionListener(new MouseMotionAdapter() {
+			@Override
+			public void mouseMoved(MouseEvent arg0) {
+				loadProgress();
+			}
+		});
+		/*frame.getContentPane().addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentShown(ComponentEvent arg0) {
+				loadProgress();
+			}
+		}); */
 		frame.setBounds(100, 100, 700, 451);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -80,7 +97,7 @@ public class ClientProfileUI {
 		nameLabel.setBounds(192, 13, 268, 16);
 		frame.getContentPane().add(nameLabel);
 		
-		JProgressBar nutritionalProgressBar = new JProgressBar();
+		nutritionalProgressBar = new JProgressBar();
 		nutritionalProgressBar.setBounds(351, 105, 296, 49);
 		frame.getContentPane().add(nutritionalProgressBar);
 		
@@ -117,5 +134,40 @@ public class ClientProfileUI {
 		//lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Camille\\git\\comp2171-Group-Project\\VainFitness\\img\\members.png"));
 		profileIcon.setBounds(343, 167, 304, 224);
 		frame.getContentPane().add(profileIcon);
+		
+		JButton UpdateDC = new JButton("Update Daily Consumption");
+		UpdateDC.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				UpdateDCUI updateDCUI = new UpdateDCUI();
+				hide();
+				updateDCUI.showFrame(frame);
+				
+				
+				
+			}
+		});
+		UpdateDC.setBounds(50, 91, 153, 25);
+		frame.getContentPane().add(UpdateDC);
+		
+		loadProgress();
+	}
+	
+	public void loadProgress() {
+		/*System.out.println("here - " + frame.isActive() + "-" + frame.isVisible());
+		while(true) {
+		 System.out.println(controller.getClientProgress());
+		nutritionalProgressBar.setValue(controller.getClientProgress());
+		
+		}*/
+		
+		nutritionalProgressBar.setValue(controller.getClientProgress());
+	}
+	
+	public void hide() {
+		frame.setVisible(false);
+	}
+	
+	public void show() {
+		frame.setVisible(true);
 	}
 }
