@@ -5,24 +5,29 @@ import java.util.*;
 /**
  * 
  */
-public class MealPlan
-{
-    private String name;
+public class MealPlan {
+	private String name;
     private Meal breakfast;
     private Meal lunch;
     private Meal dinner;
     private ArrayList<Meal> meals;
-	
+
     enum typeOfMeal{
     	BREAKFAST,
     	LUNCH,
     	DINNER
     };
     private typeOfMeal mealType;
-    
     /**
      * Default constructor
      */
+    public MealPlan(String name, Meal breakfast, Meal lunch, Meal dinner) {
+    	this.name = name;
+    	this.breakfast = breakfast;
+    	this.lunch = lunch;
+    	this.dinner = dinner;
+    }
+
     public MealPlan(String name, Meal breakfast, Meal lunch, Meal dinner, typeOfMeal mealType)
     {
         this.name = name;
@@ -39,6 +44,8 @@ public class MealPlan
     public MealPlan() {
     	
     }
+
+
     /**
      * @param mealType --> Type of meal (i.e. breakfast, lunch or dinner)
      * @param meal
@@ -114,4 +121,19 @@ public class MealPlan
     	// -> arraylistName.get(int index).addItem(foodItem)
     }
 
+	public String getName() {
+		return name;
+	}
+	
+	public Meal getBreakfast() {
+		return breakfast;
+	}
+
+	public Meal getLunch() {
+		return lunch;
+	}
+
+	public Meal getDinner() {
+		return dinner;
+	}
 }
