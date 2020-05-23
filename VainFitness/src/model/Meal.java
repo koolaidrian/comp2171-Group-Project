@@ -10,8 +10,7 @@ public class Meal {
     /**
      * Default constructor
      */
-    public Meal(String name) {
-    	this.name = name;
+    public Meal() {
     }
 
     /**
@@ -46,9 +45,5 @@ public class Meal {
     public void deleteItem(FoodItem foodItem) {
         // TODO implement here
     }
-
-	public String getName() {
-		return name;
-	}
 
 }

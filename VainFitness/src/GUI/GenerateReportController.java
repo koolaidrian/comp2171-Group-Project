@@ -1,6 +1,5 @@
 package GUI;
 
-import model.Client;
 import model.Report;
 
 public class GenerateReportController {
@@ -12,6 +11,6 @@ public class GenerateReportController {
 	}
 	
 	public String seeReport() {
-		return report.toString();
+		return report.tostring();
 	}
 }

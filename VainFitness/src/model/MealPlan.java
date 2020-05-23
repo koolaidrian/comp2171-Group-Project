@@ -10,11 +10,7 @@ public class MealPlan {
     /**
      * Default constructor
      */
-    public MealPlan(String name, Meal breakfast, Meal lunch, Meal dinner) {
-    	this.name = name;
-    	this.breakfast = breakfast;
-    	this.lunch = lunch;
-    	this.dinner = dinner;
+    public MealPlan() {
     }
 
     /**
@@ -36,10 +32,6 @@ public class MealPlan {
      * 
      */
     private Meal dinner;
-
-	public String getName() {
-		return name;
-	}
 
 
 
@@ -72,32 +64,5 @@ public class MealPlan {
     public void editMeal(String str, String str2, Meal meal, FoodItem foodItem) {
         // TODO implement here
     }
-
-
-
-
-
-
-	public Meal getBreakfast() {
-		return breakfast;
-	}
-
-
-
-
-
-
-	public Meal getLunch() {
-		return lunch;
-	}
-
-
-
-
-
-
-	public Meal getDinner() {
-		return dinner;
-	}
 
 }

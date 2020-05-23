@@ -8,11 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import model.Administrator;
 import model.Client;
-import model.FitnessTrainer;
-import model.Meal;
-import model.MealPlan;
 import model.NutritionGoal;
 import model.PersonalInfo;
 import model.Profile;
@@ -21,14 +17,7 @@ import model.WeightGoal;
 public class DBConnect {
 	private static DBConnect firstInstance = null;
 	private ArrayList<Client> clientList;
-	private ArrayList<FitnessTrainer> trainerList;
-	private ArrayList<MealPlan> lmpList;
-	private ArrayList<Meal> mList;
 	private Client client;
-	private FitnessTrainer trainer;
-	private Administrator admin;
-	private MealPlan lmp;
-	private Meal m;
 	private static Connection con;
 	private static Statement st;
 	private ResultSet rs;
@@ -169,177 +158,6 @@ public class DBConnect {
 	
 	public ArrayList<Client> getClientList(){
 		return clientList;
-	}
-
-
-	public void insertTrainerData(String userType, String username, String password, String firstname, String lastname,
-			String contact, String email) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public void loadTrainerList() {
-		try {
-			trainerList = new ArrayList<FitnessTrainer>();
-			String query = "select * from trainers";
-			rs = st.executeQuery(query);
-			System.out.println("\nRecords from database:");
-			
-			while(rs.next()) {
-				String UserType = rs.getString("UserType");
-				String UserName = rs.getString("Username");
-				String Firstname = rs.getString("Firstname");
-				String Lastname = rs.getString("Lastname");
-				String Contact = rs.getString("Contact");
-				String Password = rs.getString("Password");
-				String Email = rs.getString("Email");
-				
-				trainer = new FitnessTrainer(UserType,UserName,Password,new PersonalInfo(Firstname,Lastname,Contact,Email));
-				
-				trainerList.add(trainer);
-				
-			}
-			 
-		}
-		catch(Exception ex) {
-			System.out.println("Error: " + ex);
-		}
-		
-	}
-	public ArrayList<FitnessTrainer> getTrainerList() {
-		return trainerList;
-	}
-
-
-	public Administrator getAdmin() {
-		try {
-			String query = "select * from admin";
-			rs = st.executeQuery(query);
-			System.out.println("\nRecords from database:");
-			
-			while(rs.next()) {
-				String UserType = rs.getString("UserType");
-				String UserName = rs.getString("Username");
-				String Firstname = rs.getString("Firstname");
-				String Lastname = rs.getString("Lastname");
-				String Contact = rs.getString("Contact");
-				String Password = rs.getString("Password");
-				String Email = rs.getString("Email");
-				
-				admin = new Administrator(UserType,UserName,Password,new PersonalInfo(Firstname,Lastname,Contact,Email));
-				
-			}
-			return admin;
-			 
-		}
-		catch(Exception ex) {
-			System.out.println("Error: " + ex);
-			return null;
-		}
-	}
-	
-	public void loadLMPList() {
-		try {
-			lmpList = new ArrayList<MealPlan>();
-			String query = "select * from mealplans";
-			rs = st.executeQuery(query);
-			System.out.println("\nRecords from database:");
-			
-			while(rs.next()) {
-				String name = rs.getString("Name");
-				String breakfast = rs.getString("Breakfast");
-				String lunch = rs.getString("Lunch");
-				String dinner = rs.getString("Dinner");
-				System.out.println(name);
-				lmp = new MealPlan(name, new Meal(breakfast), new Meal(lunch), new Meal(dinner));
-		
-				lmpList.add(lmp);
-				
-			}
-			 
-		}
-		catch(Exception ex) {
-			System.out.println("Error: " + ex);
-		}
-		
-	}
-	public ArrayList<MealPlan> getLMPList() {
-		return lmpList;
-	}
-	
-	public void loadMList() {
-		try {
-			mList = new ArrayList<Meal>();
-			String query = "select * from meal";
-			rs = st.executeQuery(query);
-			System.out.println("\nRecords from database:");
-			
-			while(rs.next()) {
-				String name = rs.getString("Name");
-				m = new Meal(name);
-		
-				mList.add(m);
-				
-			}
-			 
-		}
-		catch(Exception ex) {
-			System.out.println("Error: " + ex);
-		}
-		
-	}
-	public ArrayList<Meal> getMList() {
-		return mList;
-	}
-
-
-	public void deletePlan(String planname) {
-		try {
-			mList = new ArrayList<Meal>();
-			String query = "delete from mealplans where Name= '"+planname+"' ";
-			PreparedStatement  pst = con.prepareStatement(query);
-			pst.execute();
-		}
-		catch(Exception ex) {
-			System.out.println("Error: " + ex);
-		}
-	}
-
-
-	public void updateBreakfast(String planname, String mealname) {
-		try {
-			String query = "update mealplans set Breakfast= '"+mealname+"' where Name= '"+planname+"' ";
-			PreparedStatement  pst = con.prepareStatement(query);
-			pst.execute();
-		} catch(Exception e) {
-			System.out.println("Error: " + e);
-		}
-		
-	}
-
-
-	public void updateLunch(String planname, String mealname) {
-		try {
-			String query = "update mealplans set Lunch= '"+mealname+"' where Name= '"+planname+"' ";
-			PreparedStatement  pst = con.prepareStatement(query);
-			pst.execute();
-		} catch(Exception e) {
-			System.out.println("Error: " + e);
-		}
-		
-	}
-
-
-	public void updateDinner(String planname, String mealname) {
-		try {
-			String query = "update mealplans set Dinner= '"+mealname+"' where Name= '"+planname+"' ";
-			PreparedStatement  pst = con.prepareStatement(query);
-			pst.execute();
-		} catch(Exception e) {
-			System.out.println("Error: " + e);
-		}
-		
 	}
 
 }

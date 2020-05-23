@@ -7,20 +7,28 @@ import java.util.*;
  */
 public class FitnessTrainer extends Member {
 
-	private int id;
-    private ArrayList<String> sessionHours;
-    private ArrayList<MealPlan> localisedMealPlans;
-    private ArrayList<Client> clients;
-    
     /**
      * Default constructor
      */
-    public FitnessTrainer(String Usertype, PersonalInfo PI) {
-    	super(Usertype, PI);
+    public FitnessTrainer() {
     }
-    public FitnessTrainer(String Usertype, String Username, String Password, PersonalInfo PI) {
-    	super(Usertype, Username, Password, PI);
-    }
+
+    /**
+     * 
+     */
+    private Set<String> sessionHours;
+
+    /**
+     * 
+     */
+    private Set<MealPlan> localisedMealPlans;
+
+    /**
+     * 
+     */
+    private Set<Client> clients;
+
+
 
     /**
      * @param client
@@ -89,24 +97,5 @@ public class FitnessTrainer extends Member {
     public void deleteSessionHour(String str) {
         // TODO implement here
     }
-    
-    public int getID() {
-    	return id;
-    }
 
-    public String toString() {
-    	String hours = "";
-    	for (String h: sessionHours) {
-    		hours = hours + h + "\n";
-    	}
-    	String mealPlans = "";
-    	for (MealPlan p: localisedMealPlans) {
-    		mealPlans = mealPlans + p.getName() + "\n";
-    	}
-    	String myClients = "";
-    	for (Client c: clients) {
-    		myClients = myClients + c.getUsername() + "\n";
-    	}
-    	return id + super.toString() + "\n" + hours + "\n" + mealPlans + "\n" + myClients;
-    }
 }

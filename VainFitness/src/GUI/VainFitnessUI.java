@@ -65,6 +65,7 @@ public class VainFitnessUI {
 				frame.setVisible(false);
 				CalFrame.showFrame(frame);
 				
+				
 			}
 		});
 		CaloricValue.setBounds(45, 152, 175, 25);
