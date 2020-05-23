@@ -2,6 +2,8 @@ package GUI;
 
 import java.awt.EventQueue;
 import model.fitnessController;
+import view.VainFitnessUIAdmin;
+import view.VainFitnessUITrainer;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
@@ -123,9 +125,26 @@ public class CreateClientProfileUI {
 				System.out.println(controller.getClientInfo());
 				if(controller.checkCurrentUser()) {
 					JOptionPane.showMessageDialog(null, "Profile Created!");
-					ClientProfileUI clientProfileUI = new ClientProfileUI();
-					clientProfileUI.showFrame(MainFrame);
-					frame.dispose();
+					String type = controller.getType(Username);
+					if (type.equals(" ")) {
+						controller.setCurrentUser(controller.getNewClient());
+						ClientProfileUI clientProfileUI = new ClientProfileUI();
+						clientProfileUI.showFrame(MainFrame);
+						frame.dispose();
+					}
+					else if (type.equals("trainer")) {
+						VainFitnessUITrainer trainerUI = new VainFitnessUITrainer();
+						trainerUI.showFrame(MainFrame);
+						frame.dispose();
+					}
+					else if (type.equals("admin")) {
+						VainFitnessUIAdmin adminUI = new VainFitnessUIAdmin();
+						adminUI.showFrame(MainFrame);
+						frame.dispose();
+					}
+					else {
+						System.out.println("Error!");
+					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Profile was not created successfully. Please try again!");
 					hideFrame();
